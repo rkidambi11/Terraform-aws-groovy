@@ -109,6 +109,7 @@ stage('Initialisation'){
 	currentBuild.displayName ='aws-terraform-demo-ranga : DataCenter->' + params.DataCenter + ":" + params.Environment
 	
  }
+}
 
 
 
