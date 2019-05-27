@@ -121,7 +121,7 @@ stage('User Confirmation') {
 
 stage('AWS Resource Provisioning - Terraform Execution') {
 		
-	sh script: "pwd;ls -lrt;cd terraform-course/;ls -lrt;"
+	sh script: "pwd;ls -lrt;cd terraform;ls -lrt;"
 	
 	if(params.TerrafromAction=="apply") {
 			println "TerrafromAction is apply"
