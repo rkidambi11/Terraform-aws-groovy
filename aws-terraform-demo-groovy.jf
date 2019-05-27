@@ -103,7 +103,34 @@ stage('Initialisation'){
 	currentBuild.displayName ='aws-terraform-demo-ranga : DataCenter->' + params.DataCenter + ":" + params.Environment
 	
  }
+	
+stage('User Confirmation') {
+	if (params.Environment.trim().equals('')){
+		input message: "Please confirm that you wish to execute the terraform in ${params.Environment} and Action is ${params.TerrafromAction} ?\n\n", ok: "Proceed"
+	}else {
+		input message: "Please confirm that you wish to execute the terraform in ${params.Environment} and Action is ${params.TerrafromAction} ?\n\n", ok: "Proceed"
+	}
+} 
+
+stage('AWS Resource Provisioning - Terraform Execution') {
+		
+	sh script: "pwd;ls -lrt;cd terraform;ls -lrt;"
+	
+	if(params.TerrafromAction=="apply") {
+			println "TerrafromAction is apply"
+			sh script: "/opt/terraform init ./demo-8"
+			sh script: "sleep 30"
+			sh script: "/opt/terraform plan ./demo-8"
+			sh script: "sleep 30"
+			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve ./demo-8"
+		}else{
+			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve  ./demo-8"
+		}
+		//sh  script: 'rm -rf terraform'
+	}
+
+stage('AWS Terraform - CICD Pileline Execution End') {
+
+	println "AWS - CICD Pileline Completed Successfully, Kindly check the Jenkins Console Log"
+} 
 }
-
-
-
