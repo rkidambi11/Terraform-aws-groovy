@@ -106,7 +106,7 @@ stage('Initialisation'){
 
 	
 	//DISPLAY THE BUILD DETAILS IN THE JENKINS CONSOLE 
-	currentBuild.displayName ='aws-terraform-demo-praveen : DataCenter->' + params.DataCenter + ":" + params.Environment
+	currentBuild.displayName ='aws-terraform-demo-ranga : DataCenter->' + params.DataCenter + ":" + params.Environment
 	
  }
 
@@ -131,7 +131,7 @@ stage('AWS Resource Provisioning - Terraform Execution') {
 			sh script: "sleep 30"
 			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve ./terraform"
 		}else{
-			sh script: "/opt/terraform ${params.TerrafromAction} -force ./terraform"
+			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve  ./terraform"
 		}
 		//sh  script: 'rm -rf terraform'
 	}
