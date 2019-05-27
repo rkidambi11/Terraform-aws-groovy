@@ -121,17 +121,17 @@ stage('User Confirmation') {
 
 stage('AWS Resource Provisioning - Terraform Execution') {
 		
-	sh script: "pwd;ls -lrt;cd terraform;ls -lrt;cd .."
+	sh script: "pwd;ls -lrt;cd terraform-course/;ls -lrt;"
 	
 	if(params.TerrafromAction=="apply") {
 			println "TerrafromAction is apply"
-			sh script: "/opt/terraform init ./terraform"
+			sh script: "/opt/terraform init ./demo-8"
 			sh script: "sleep 30"
-			sh script: "/opt/terraform plan ./terraform"
+			sh script: "/opt/terraform plan ./demo-8"
 			sh script: "sleep 30"
-			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve ./terraform"
+			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve ./demo-8"
 		}else{
-			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve  ./terraform"
+			sh script: "/opt/terraform ${params.TerrafromAction} -auto-approve  ./demo-8"
 		}
 		//sh  script: 'rm -rf terraform'
 	}
