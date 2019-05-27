@@ -2,8 +2,8 @@
 /*
 #title           :aws-terraform-demo-groovy
 #description     :This script will provisioning the AWS Environment
-#author		     :Praveenkumar Dhavamani
-#date            :01/May/2019
+#author		     :Ranga Kidambi
+#date            :27/May/2019
 #version         :1.0 
 #usage		     :It makes VPC and EC2 instance including subnets
 #notes           :Install Vim and Emacs to use this script
