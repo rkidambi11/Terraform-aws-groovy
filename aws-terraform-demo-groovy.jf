@@ -11,7 +11,7 @@
 */
 
 //Inputparamter Checks 
-pipeline {
+node {
 stage('Declarative Pipeline : Input Parameters Check'){	
 	def missingParams = false
 	
