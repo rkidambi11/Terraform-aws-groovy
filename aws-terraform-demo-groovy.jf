@@ -71,13 +71,7 @@ stage('Declarative Pipeline : Input Parameters Check'){
 	}
 
 
-	if(missingParams){
-	println "There are one or more madatory parameter missing"
-	currentBuild.result = 'FAIL'
-	return
-   }
-
-}
+	}
 
 
 stage('Initialisation'){
